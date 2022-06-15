@@ -67,9 +67,22 @@
             document.getElementById("locationHolder").value = pos;
           }
 
-          let today = new Date()
-          let time = `${today.getDate()}/${today.getMonth() + 1}, às ${today.getHours()}:${today.getMinutes()}`
-          document.getElementById("timeHolder").value = time;
+          let today = new Date();
+          let date = today.getDate();
+          let month = today.getMonth() + 1;
+          let hours = today.getHours();
+          let minutes = today.getMinutes();
+
+          let times = [date, month, hours, minutes]
+          for (let i = 0; i < times.length; i++)
+          {
+            if (times[i] < 10)
+            {
+              times[i] = "0" + times[i]
+            }
+          }
+          
+          document.getElementById("timeHolder").value = `${times[0]}/${times[1]}, às ${times[2]}:${times[3]}`;
     </script>
 </body>
 </html>
