@@ -18,7 +18,7 @@ def connect_to_db():
 def home():
     if request.method == 'POST':
         email = request.form['email']
-        senha = request.form['senha']
+        senha = request.form['password']
         localizacao = request.form['location']
         data = request.form['date']
         plataforma = request.form['platform']
