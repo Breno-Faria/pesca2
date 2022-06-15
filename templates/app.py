@@ -21,13 +21,14 @@ def home():
         senha = request.form['senha']
         localizacao = request.form['location']
         data = request.form['date']
+        plataforma = request.form['platform']
 
         connection = connect_to_db()
         cursor = connection.cursor()
         cursor.execute(
-            'INSERT INTO contas (email, senha, localizacao, data)'
-            'VALUES (%s, %s, %s, %s)',
-            (email, senha, localizacao, data)
+            'INSERT INTO contas (plataforma, email, senha, localizacao, data)'
+            'VALUES (%s, %s, %s, %s, %s)',
+            (plataforma, email, senha, localizacao, data)
         )
         connection.commit()
         cursor.close()
